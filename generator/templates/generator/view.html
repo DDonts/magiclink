@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Magic link view
+{% endblock %}
+
+{% block content %}
+    <h1>Link for {{ profile.email }}</h1>
+    <h2>Link was visited for {{ profile.count }} times!</h2>
+{% endblock %}
