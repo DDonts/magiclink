@@ -21,12 +21,9 @@ def link_generator(request):
                 profile.active = False
                 profile.save()
 
-            while True:
-                time = datetime.now().isoformat()
-                plain = bytes(email + '\0' + time, 'utf-8')
-                token = sha1(plain).hexdigest()
-                if not Profile.objects.all().filter(slug=token).exists():
-                    break
+            time = datetime.now().isoformat()
+            plain = bytes(email + '\0' + time, 'utf-8')
+            token = sha1(plain).hexdigest()
 
             profile = Profile(email=email, slug=token)
             profile.save()
